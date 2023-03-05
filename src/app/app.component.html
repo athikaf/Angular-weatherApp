@@ -1,4 +1,77 @@
-<div class="container">
+<div class="search">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <input
+      type="text"
+      placeholder="Search City"
+      name="city"
+      [(ngModel)]="cityName"
+    />
+  </form>
+</div>
+
+<div class="container" *ngIf="weatherData">
+  <div class="upper-data">
+    <img src="../assets/summer.jpeg" *ngIf="weatherData.main.temp > 15" />
+    <img src="../assets/winter.jpeg" *ngIf="weatherData.main.temp <= 15" />
+
+    <div class="weather-data">
+      <div class="location">{{ weatherData.name }}</div>
+      <div class="temperature">
+        {{ weatherData.main.temp | number : "1.0-0" }}˚C
+      </div>
+    </div>
+  </div>
+
+  <div class="lower-data">
+    <div class="more-info-label">More Information</div>
+    <div class="more-info-container">
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/cold.png" alt="" />
+          <span>min</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.main.temp_min | number : "1.0-0" }}˚C
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/hot.png" alt="" />
+          <span>max</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.main.temp_max | number : "1.0-0" }}˚C
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/humidity.png" alt="" />
+          <span>humidity</span>
+        </div>
+        <div class="info-block-value">{{ weatherData.main.humidity }}%</div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/wind.png" alt="" />
+          <span>wind</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.wind.speed }} <br />
+          km/hr
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="footer">
+    Made with ❤️ by
+    <a href="https://www.linkedin.com/in/athika-fatima-1a59121aa/"
+      >Athika Fatima</a
+    >
+  </p>
+</div>
+
+<!-- <div class="container">
   <div class="upper-data">
     <img src="../assets/summer.jpeg" *ngIf="14 > 15" />
     <img src="../assets/winter.jpeg" *ngIf="14 <= 15" />
@@ -42,6 +115,6 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <router-outlet></router-outlet>
