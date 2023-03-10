@@ -44,8 +44,6 @@ I hope this helps. If it did, do follow me on Github.
 
 If you need anything else, you can connect with me on Twitter or LinkedIn. Links are on my profile.
 
-Lastly, a shoutout to Sameer Saini on YouTube.
-
 ## General Angular Documentation
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
